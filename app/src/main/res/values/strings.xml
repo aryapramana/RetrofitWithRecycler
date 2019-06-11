@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Retrofit With Recycler</string>
+    <string name="id_label">ID:</string>
+</resources>
