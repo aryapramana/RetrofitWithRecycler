@@ -1,6 +1,7 @@
 package com.software.tempe.retrofitwithrecycler.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.software.tempe.retrofitwithrecycler.ItemDetailActivity;
 import com.software.tempe.retrofitwithrecycler.R;
 import com.software.tempe.retrofitwithrecycler.model.Post;
 
@@ -36,7 +38,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AppAdapter appAdapter, final int i) {
+    public void onBindViewHolder(@NonNull final AppAdapter appAdapter, final int i) {
         final Post post = postList.get(i);
 
         appAdapter.postIdTxtView.setText(String.valueOf(post.getId()));
@@ -46,7 +48,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         appAdapter.item_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Title: " + post.getId(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, ItemDetailActivity.class);
+                intent.putExtra("title_data", post.getTitle());
+                intent.putExtra("body_data", post.getBody());
+                // Toast.makeText(context, "Title: " + post.getId(), Toast.LENGTH_SHORT).show();
+                context.startActivity(intent);
             }
         });
     }

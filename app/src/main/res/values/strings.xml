@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Retrofit With Recycler</string>
     <string name="id_label">ID:</string>
+    <string name="profile_image">Profile image</string>
+    <string name="data_title">Title</string>
+    <string name="data_desc">Data Description</string>
 </resources>
